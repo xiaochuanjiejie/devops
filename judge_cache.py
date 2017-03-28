@@ -24,3 +24,5 @@ if value_test == '123qwe456asd':
 	#print type(mid.content),len(mid.content)
 else:
 	print 'Cbase set测试失败,需先查看moxi或cbase状态...'
+test
+test
