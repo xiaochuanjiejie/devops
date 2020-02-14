@@ -40,3 +40,4 @@ def get_zabbix_alert_list(query,start_time,stop_time,get_type='default'):
             print 'Nothing found!'
 
 get_zabbix_alert_list('query','20200213143000','20200213150000')
+
