@@ -5,6 +5,7 @@ import re
 import time
 import requests
 import datetime
+from elasticsearch5 import Elasticsearch
 
 '''
 SLB中域名mc-im.01zhuanche.com的500状态码速率大于5次/分
@@ -40,3 +41,26 @@ def get_zabbix_alert_list(query,start_time,stop_time,get_type='default'):
             print 'Nothing found!'
 
 get_zabbix_alert_list('query','20200213143000','20200213150000')
+
+idx_name = 'logstash-slb_20200217'
+body = {
+    "query" : {
+        "bool" : {
+            "filter" : {
+                "range" : {
+                    "@timestamp" : { "gt" : 'now-5m' }
+                }
+            },
+            "must" : {
+                "match" : {
+                    "http_host" : "www.01zhuanche.com"
+                }
+            }
+        }
+    }
+}
+
+es = Elasticsearch(hosts='http://10.66.5.28:9200', timeout=300)
+Es_Data = es.search(index='%s' % idx_name, body=body)
+# print Es_Data
+print Es_Data["hits"]["hits"][0]['_source']['remote_addr']
