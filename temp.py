@@ -101,4 +101,5 @@ if __name__ == "__main__":
     # stime: 1582101481000, dtime: 1582101541000
     # start_time: 20200219163801, stop_time: 20200219163901
     # Get_Error(1582101301000,1582101781000,'logstash-slb_20200219','m.01zhuanche.com','400')
-    Get_Error(1582101360000, 1582101541000, 'logstash-slb_20200219', 'm.01zhuanche.com', '400')
+    # Get_Error(1582101360000, 1582101541000, 'logstash-slb_20200219', 'm.01zhuanche.com', '400')
+    Get_Error(1582587002000, 1582587362000, 'logstash-slb_20200224', 'inside-cs-api.01zhuanche.com', '400')
